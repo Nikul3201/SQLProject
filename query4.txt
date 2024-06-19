@@ -1,0 +1,10 @@
+SELECT DISTINCT o.order_id, op.product_id, p.product_name, d.department,
+op2.product_id, p2.product_name, d2.department
+from orders o
+LEFT join order_products op on o.order_id = op.order_id
+LEFT join products p on op.product_id = p.product_id
+Left join departments d on p.department_id = d.department_id
+Left join order_products op2 on o.order_id = op2.order_id
+Left join products p2 on op2.product_id = p2.product_id
+Left join departments d2 on p2.department_id = d2.department_id
+where d.department = "bakery" and d2.department = "frozen"

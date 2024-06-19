@@ -1,0 +1,6 @@
+SELECT p.product_id, p.product_name, sum(op.reordered) as total_reordered
+from products p
+left join order_products op on p.product_id = op.product_id
+GROUP by p.product_id, p.product_name
+order by total_reordered DESC
+Limit 5
